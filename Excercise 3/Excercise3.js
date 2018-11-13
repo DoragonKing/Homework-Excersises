@@ -2,6 +2,7 @@ let posX ;
 let posY ;
 let size;
 let size2;
+let sizeran;
 let o;
 let r;
 let g;
@@ -58,13 +59,12 @@ function fancyCircle(){
   stroke(255)
   posX = random(height);
   posY =random(width);
-  size=200;
-  size2=100;
+  sizeran=(random(300))
   o=random(300);
   r=random(100,255);
   b=random(100,255);
   fill(r,0,b,o);
-  ellipse(posX,posY,size,size);
+  ellipse(posX,posY,sizeran,sizeran);
 }
 
 function keyPressed(){
