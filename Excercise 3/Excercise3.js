@@ -72,7 +72,9 @@ function keyPressed(){
 
 if(key=='8') f=f+10; console.log(f);
 if(key=='9') f=f-10; console.log(f);
-if(key=='1') state = 0;background(0);
-if(key=='2') state = 1;background(0);
-if(key=='3') state = 2;background(0);
+if(key=='1') {state = 0;background(0);}
+if(key=='2') {state = 1;background(0);}
+if(key=='3') {state = 2;background(0);}
+if(f<=0){ f=10;}
+if(f>=300) {f=300;}
 }
