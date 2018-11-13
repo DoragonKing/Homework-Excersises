@@ -21,6 +21,8 @@ function draw(){
       random colours*/
       fill(random(255),random(255),random(255));
       rect(size*x+10,size*y+10,size2,size2)
+      /*the console log to show how the loop works, going
+      through all x's then y's then the next x value down*/
       console.log(x,y)
     }
   }
