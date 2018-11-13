@@ -1,78 +1,28 @@
-let posX ;
-let posY ;
-let size;
-let size2;
-let o;
-let r;
-let g;
-let b;
-var f=30;
-var state =0;
+/*Increases both the sizes by ten would have everything fill the canvas while
+keeping the small squares in the centre of the larger ones*/
+let size=40;
+let size2=20;
 function setup(){
-createCanvas(1000,1000);
-background(0);
-
+  createCanvas(500,500);
+  background(0);
+  //controls the speed of the frames, so it's doesn't change ever so quickly
+  frameRate(10);
 }
-
 
 function draw(){
-frameRate(f);
-  if(state == 0){
-drawEllipse();
-}
-else if(state==1){
-customShape();
-}
-else if(state==2){
-  fancyCircle();
-}
+  //Does a loop for the variable y followed by x
+  for(let y=0;y<10;y++){
+    for(let x=0;x<10;x++){
+      fill(200,250,200);
+      /*first one multiplies it by the current variable x before the next loop
+      and draws it and then draws the next rectangle*/
+      rect(size*x,size*y,size,size);
+      /*the random fill in random values, putting it in r,g,b gives
+      random colours*/
+      fill(random(255),random(255),random(255));
+      rect(size*x+10,size*y+10,size2,size2)
+      console.log(x,y)
+    }
+  }
 
-}
-function drawEllipse(){
-  //noStroke();
-  posX = random(height);
-  posY =random(width);
-  size=200;
-  size2=100;
-  r=random(100,255)
-  g=random(100,255)
-  b=random(100,255)
-
-fill(r,0,b);
-ellipse(posX,posY,size,size);
-fill(r,g,0);
-ellipse(posX,posY,150,150);
-fill(0,g,b);
-ellipse(posX,posY,size2,size2);
-
-}
-function customShape(){
-  posX=random(width)
-  posY=random(height)
-  fill(random(255),random(255),0)
-  rect(posX,posY,size,size)
-  rect(posX,posY,size2,size2)
-}
-
-function fancyCircle(){
-  stroke(255)
-  posX = random(height);
-  posY =random(width);
-  size=200;
-  size2=100;
-  o=random(300);
-  r=random(100,255);
-  b=random(100,255);
-  fill(r,0,b,o);
-  ellipse(posX,posY,size,size);
-}
-
-function keyPressed(){
-
-
-if(key=='8') f=f+10; console.log(f);
-if(key=='9') f=f-10; console.log(f);
-if(key=='1') state = 0;background(0);
-if(key=='2') state = 1;background(0);
-if(key=='3') state = 2;background(0);
 }
